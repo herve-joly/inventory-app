@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ItemsList } from "./ItemsList";
+import { Detail } from "./Detail";
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
 
 export const App = () => {
   const [items, setItems] = useState([]);
+  const [detail, setDetail] = useState();
 
   async function fetchItems() {
     try {
@@ -26,7 +28,11 @@ export const App = () => {
     <main>
       <>
         <h1>Items Store</h1>
-        <ItemsList items={items} />
+        {!detail ? (
+          <ItemsList items={items} setDetail={setDetail} />
+        ) : (
+          <Detail item={detail} setDetail={setDetail} />
+        )}
       </>
     </main>
   );
