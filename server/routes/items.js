@@ -4,7 +4,6 @@ const { Item } = require("../models");
 
 // Middleware
 
-
 // GET All
 router.get("/", async (req, res, next) => {
   try {
@@ -33,6 +32,18 @@ router.post("/", async (req, res, next) => {
       throw new Error("Item not created");
     } else res.sendStatus(201);
   } catch (error) {
+    next(error);
+  }
+});
+
+// DELETE 1 item
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const item = await Item.findByPk(req.params.id);
+    item.destroy();
+    res.json(`${item["title"]} was deleted!`);
+  } catch (error) {
+    res.sendStatus(404);
     next(error);
   }
 });
