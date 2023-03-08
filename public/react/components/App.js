@@ -20,6 +20,16 @@ export const App = () => {
     }
   }
 
+  async function deleteItem(itemId) {
+    try {
+      await fetch(`${apiURL}/items/${itemId}`, { method: "DELETE" });
+      setItems(items.filter((item) => item.id !== itemId));
+      setDetail(undefined);
+    } catch (err) {
+      console.log("Oh no an error! ", err);
+    }
+  }
+
   useEffect(() => {
     fetchItems();
   }, []);
