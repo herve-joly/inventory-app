@@ -25,4 +25,16 @@ router.get("/:title", async (req, res, next) => {
   }
 });
 
+// ADD item
+router.post("/", body, async (req, res, next) => {
+  try {
+    const item = await Item.create(req.body);
+    if (!item) {
+      throw new Error("Item not created");
+    } else res.sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
