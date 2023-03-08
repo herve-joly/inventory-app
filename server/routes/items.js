@@ -48,4 +48,20 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
+// UPDATE item
+router.put("/:id", async (req, res, next) => {
+  try {
+    const item = await Item.findByPk(req.params.id);
+    if (!item) {
+      res.sendStatus(404);
+    } else {
+      const item = await Item.findByPk(req.params.id);
+      item.update(req.body);
+      res.json(`${item["title"]} was updated!`);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
