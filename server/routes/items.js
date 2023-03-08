@@ -3,7 +3,7 @@ const router = express.Router();
 const { Item } = require("../models");
 
 // Middleware
-// app.use(express.json());
+router.use(express.json());
 
 // GET All
 router.get("/", async (req, res, next) => {
@@ -26,12 +26,12 @@ router.get("/:title", async (req, res, next) => {
 });
 
 // ADD item
-router.post("/", body, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
     const item = await Item.create(req.body);
     if (!item) {
       throw new Error("Item not created");
-    } else res.sendStatus(200);
+    } else res.sendStatus(201);
   } catch (error) {
     next(error);
   }
