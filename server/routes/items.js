@@ -3,7 +3,7 @@ const router = express.Router();
 const { Item } = require("../models");
 
 // Middleware
-router.use(express.json());
+
 
 // GET All
 router.get("/", async (req, res, next) => {
