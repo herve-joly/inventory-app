@@ -20,6 +20,17 @@ export const App = () => {
     }
   }
 
+  async function deleteItem(itemId) {
+    console.log("Deleting item with ID:", itemId);
+    try {
+      await fetch(`${apiURL}/items/${itemId}`, { method: "DELETE" });
+      setItems(items.filter((item) => item.id !== itemId));
+      setDetail(undefined);
+    } catch (err) {
+      console.log("Oh no an error! ", err);
+    }
+  }
+
   useEffect(() => {
     fetchItems();
   }, []);
@@ -31,7 +42,7 @@ export const App = () => {
         {!detail ? (
           <ItemsList items={items} setDetail={setDetail} />
         ) : (
-          <Detail item={detail} setDetail={setDetail} />
+          <Detail item={detail} setDetail={setDetail} deleteItem={deleteItem} />
         )}
       </>
     </main>
