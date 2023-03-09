@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { UpdateForm } from "./UpdateForm";
 
 export function Detail(props) {
   const { item, setDetail, deleteItem } = props;
+  const [updateForm, setupdateForm] = useState();
 
   const handleDelete = async () => {
     await deleteItem(item.id);
@@ -12,6 +14,7 @@ export function Detail(props) {
     // Single Item View
     <article>
       <>
+        <UpdateForm setupdateForm={setupdateForm} itemId={item.id} />
         <h3>{item.title}</h3>
         <img class="singleItemIMG" src={item.image} alt={item.title} />
         <h4>
@@ -23,6 +26,7 @@ export function Detail(props) {
         <h4>
           <span class="desSpan">Category:</span> {item.category}
         </h4>
+        <img src={item.image} alt={item.title} />
         <div class="buttonDiv">
           <button onClick={() => setDetail()}>Back to Items Store</button>
           <button onClick={handleDelete}>Delete Item</button>
