@@ -9,6 +9,7 @@ export function Detail(props) {
   };
 
   return (
+    // Single Item View
     <>
       <h3>{item.title}</h3>
       <h4>Price: {item.price}</h4>

@@ -13,9 +13,10 @@ export const Item = (props) => {
   }
 
   return (
+    // Image View
     <>
       <h3 onClick={fetchReq}>{props.item.title}</h3>
-      <img src={props.item.image} alt={props.item.title} />
+      <img class="img-viewAll" src={props.item.image} alt={props.item.title} />
     </>
   );
 };

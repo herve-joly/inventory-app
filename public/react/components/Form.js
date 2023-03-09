@@ -34,6 +34,7 @@ export function Form(props) {
   }
 
   return (
+    // Form view
     <div>
       <form onSubmit={submitHandler}>
         <input
