@@ -12,7 +12,7 @@ export function Detail(props) {
 
   return (
     <>
-      <UpdateForm setupdateForm={setupdateForm} />
+      <UpdateForm setupdateForm={setupdateForm} itemId={item.id} />
       <h3>{item.title}</h3>
       <h4>Price: {item.price}</h4>
       <h4>Description: {item.description}</h4>

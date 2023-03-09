@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export function UpdateForm() {
+export function UpdateForm({ itemId }) {
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
   const [description, setDescription] = useState();
@@ -11,7 +11,7 @@ export function UpdateForm() {
   async function submitHandler(event) {
     event.preventDefault();
     try {
-      const res = await fetch(`${apiURL}/items/1`, {
+      const res = await fetch(`${apiURL}/items/${itemId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
