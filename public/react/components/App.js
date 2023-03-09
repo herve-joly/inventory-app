@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ItemsList } from "./ItemsList";
 import { Detail } from "./Detail";
+import { Form } from "./Form";
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
@@ -8,6 +9,7 @@ import apiURL from "../api";
 export const App = () => {
   const [items, setItems] = useState([]);
   const [detail, setDetail] = useState();
+  const [form, setForm] = useState(false);
 
   async function fetchItems() {
     try {
@@ -30,19 +32,34 @@ export const App = () => {
       console.log("Oh no an error! ", err);
     }
   }
+  function clickHandler() {
+    setForm(true);
+    setDetail(false);
+  }
 
   useEffect(() => {
-    fetchItems();
+    fetchItems(fetchItems);
   }, []);
 
   return (
     <main>
       <>
         <h1>Items Store</h1>
-        {!detail ? (
-          <ItemsList items={items} setDetail={setDetail} />
+        {form && <Form items={form} setForm={setForm} />}
+        {!detail && !form ? (
+          <>
+            {!form && <button onClick={clickHandler}>Add an Item</button>}
+
+            <ItemsList items={items} setDetail={setDetail} />
+          </>
         ) : (
-          <Detail item={detail} setDetail={setDetail} deleteItem={deleteItem} />
+          !form && (
+            <Detail
+              item={detail}
+              setDetail={setDetail}
+              deleteItem={deleteItem}
+            />
+          )
         )}
       </>
     </main>
