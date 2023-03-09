@@ -59,7 +59,9 @@ export function Form(props) {
         />
         <button type="submit">Submit</button>
       </form>
-      <button onClick={() => props.setForm(false)}>Back to Items Store</button>
+      <button onClick={() => props.setForm(false)} className="back-button">
+        Back to Items Store
+      </button>
     </div>
   );
 }
