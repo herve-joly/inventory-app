@@ -4,7 +4,7 @@ import apiURL from "../api";
 export const Item = (props) => {
   async function fetchReq() {
     try {
-      const res = await fetch(apiURL + "/items/" + props.item.title);
+      const res = await fetch(apiURL + "/items/" + props.item.id);
       const data = await res.json();
       props.setDetail(data);
     } catch (error) {

@@ -15,11 +15,12 @@ router.get("/", async (req, res, next) => {
 });
 
 // GET 1 item
-router.get("/:title", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
-    const item = await Item.findOne({ where: { title: req.params.title } });
+    const item = await Item.findByPk(req.params.id);
     res.send(item);
   } catch (error) {
+    res.send(404);
     next(error);
   }
 });
