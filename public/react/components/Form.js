@@ -16,7 +16,7 @@ export function Form(props) {
       category,
       image,
     };
-    console.log(obj);
+
     setDescription();
     setPrice();
     setTitle();
