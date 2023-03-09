@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { UpdateForm } from "./UpdateForm";
 
 export function Detail(props) {
   const { item, setDetail, deleteItem } = props;
+  const [updateForm, setupdateForm] = useState();
 
   const handleDelete = async () => {
     await deleteItem(item.id);
@@ -10,6 +12,7 @@ export function Detail(props) {
 
   return (
     <>
+      <UpdateForm setupdateForm={setupdateForm} />
       <h3>{item.title}</h3>
       <h4>Price: {item.price}</h4>
       <h4>Description: {item.description}</h4>
