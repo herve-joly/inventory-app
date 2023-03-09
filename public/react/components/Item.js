@@ -20,8 +20,7 @@ export const Item = (props) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      }}
-    >
+      }}>
       <div
         class
         style={{
@@ -31,11 +30,10 @@ export const Item = (props) => {
           padding: "10px",
           margin: "15px",
           borderRadius: "1.5rem",
-          width: "57rem",
+          width: "27rem",
           justifyContent: "center",
           alignItems: "center",
-        }}
-      >
+        }}>
         <>
           <img
             onClick={fetchReq}
@@ -51,8 +49,7 @@ export const Item = (props) => {
             onClick={fetchReq}
             style={{
               cursor: "pointer",
-            }}
-          >
+            }}>
             {props.item.title}
           </h2>
         </>

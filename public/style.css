@@ -7,6 +7,10 @@
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: 350;
 }
+#itemList {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
 
 h1 {
   color: white;
@@ -25,8 +29,8 @@ h4 {
 }
 
 .img-viewAll {
-  height: 50rem;
-  width: 55rem;
+  height: auto;
+  width: 25vw;
 }
 
 /* SINGLE ITEM VIEW */

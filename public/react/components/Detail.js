@@ -26,7 +26,7 @@ export function Detail(props) {
         <h4>
           <span class="desSpan">Category:</span> {item.category}
         </h4>
-        <img src={item.image} alt={item.title} />
+
         <div class="buttonDiv">
           <button onClick={() => setDetail()}>Back to Items Store</button>
           <button onClick={handleDelete}>Delete Item</button>
