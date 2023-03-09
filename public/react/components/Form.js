@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import apiURL from "../api";
 
 export function Form(props) {
   const [title, setTitle] = useState();
@@ -7,15 +8,23 @@ export function Form(props) {
   const [category, setCategory] = useState();
   const [image, setImage] = useState();
 
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
-    const obj = {
-      title,
-      price,
-      description,
-      category,
-      image,
-    };
+    try {
+      const res = await fetch(`${apiURL}/items`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title,
+          price,
+          description,
+          category,
+          image,
+        }),
+      });
+    } catch (err) {
+      console.log("Oh no an error! ", err);
+    }
 
     setDescription();
     setPrice();
