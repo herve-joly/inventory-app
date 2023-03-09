@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-export function Form() {
+export function Form(props) {
   const [title, setTitle] = useState();
   const [price, setPrice] = useState();
   const [description, setDescription] = useState();
   const [category, setCategory] = useState();
   const [image, setImage] = useState();
+
   function submitHandler(event) {
     event.preventDefault();
     const obj = {
@@ -22,6 +23,7 @@ export function Form() {
     setImage();
     setCategory();
   }
+
   return (
     <div>
       <form onSubmit={submitHandler}>
@@ -47,6 +49,7 @@ export function Form() {
         />
         <button type="submit">Submit</button>
       </form>
+      <button onClick={() => props.setForm(false)}>Back to Items Store</button>
     </div>
   );
 }

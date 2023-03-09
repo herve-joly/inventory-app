@@ -9,7 +9,7 @@ import apiURL from "../api";
 export const App = () => {
   const [items, setItems] = useState([]);
   const [detail, setDetail] = useState();
-  const [form, setForm] = useState();
+  const [form, setForm] = useState(false);
 
   async function fetchItems() {
     try {
@@ -32,6 +32,10 @@ export const App = () => {
       console.log("Oh no an error! ", err);
     }
   }
+  function clickHandler() {
+    setForm(true);
+    setDetail(false);
+  }
 
   useEffect(() => {
     fetchItems();
@@ -41,14 +45,21 @@ export const App = () => {
     <main>
       <>
         <h1>Items Store</h1>
-        <button onClick={() => setForm(true)}>Add an Item</button>
         {form && <Form items={form} setForm={setForm} />}
-        {!detail ? (
+        {!detail && !form ? (
           <>
+            {!form && <button onClick={clickHandler}>Add an Item</button>}
+
             <ItemsList items={items} setDetail={setDetail} />
           </>
         ) : (
-          <Detail item={detail} setDetail={setDetail} deleteItem={deleteItem} />
+          !form && (
+            <Detail
+              item={detail}
+              setDetail={setDetail}
+              deleteItem={deleteItem}
+            />
+          )
         )}
       </>
     </main>
