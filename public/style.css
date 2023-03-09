@@ -15,9 +15,39 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  color: #cecdcd;
+  padding: 0.5rem;
+}
+
 .img-viewAll {
+  height: 50rem;
+  width: 55rem;
+}
+
+/* SINGLE ITEM VIEW */
+article {
+  display: flex;
+  flex-direction: column;
+}
+
+.singleItemIMG {
   height: 40rem;
   width: 40rem;
+  border-radius: 2rem;
+}
+
+.buttonDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.desSpan {
+  font-style: italic;
 }
 
 /* FORM & BUTTON STYLE */

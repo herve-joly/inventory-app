@@ -14,6 +14,7 @@ export const Item = (props) => {
 
   return (
     // Image View
+    // <div style={{ display: "inline-flex", width: "50%" }}>
     <section
       style={{
         display: "flex",
@@ -24,13 +25,13 @@ export const Item = (props) => {
       <div
         class
         style={{
-          border: "1px solid rgb(36,38,44)",
+          border: "5px solid rgb(36,38,44)",
           display: "flex",
           flexDirection: "column",
           padding: "10px",
           margin: "15px",
           borderRadius: "1.5rem",
-          width: "42rem",
+          width: "57rem",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -57,5 +58,6 @@ export const Item = (props) => {
         </>
       </div>
     </section>
+    // </div>
   );
 };
