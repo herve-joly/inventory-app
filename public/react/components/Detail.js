@@ -11,15 +11,27 @@ export function Detail(props) {
   };
 
   return (
-    <>
-      <UpdateForm setupdateForm={setupdateForm} itemId={item.id} />
-      <h3>{item.title}</h3>
-      <h4>Price: {item.price}</h4>
-      <h4>Description: {item.description}</h4>
-      <h4>Category: {item.category}</h4>
-      <img src={item.image} alt={item.title} />
-      <button onClick={() => setDetail()}>Back to Items Store</button>
-      <button onClick={handleDelete}>Delete Item</button>
-    </>
+    // Single Item View
+    <article>
+      <>
+        <UpdateForm setupdateForm={setupdateForm} itemId={item.id} />
+        <h3>{item.title}</h3>
+        <img class="singleItemIMG" src={item.image} alt={item.title} />
+        <h4>
+          <span class="desSpan">Price:</span> £{item.price}
+        </h4>
+        <h4>
+          <span class="desSpan">Description:</span> {item.description}
+        </h4>
+        <h4>
+          <span class="desSpan">Category:</span> {item.category}
+        </h4>
+
+        <div class="buttonDiv">
+          <button onClick={() => setDetail()}>Back to Items Store</button>
+          <button onClick={handleDelete}>Delete Item</button>
+        </div>
+      </>
+    </article>
   );
 }

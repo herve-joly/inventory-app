@@ -41,15 +41,18 @@ export const App = () => {
   }, []);
 
   return (
+    // Landing Page design with all items
     <main>
       <>
-        <h1>Items Store</h1>
+        <h1>Le Fab 4's Items Store</h1>
+
         {form && <Form items={form} setForm={setForm} />}
         {!detail && !form ? (
           <>
             {!form && <button onClick={clickHandler}>Add an Item</button>}
-
-            <ItemsList items={items} setDetail={setDetail} />
+            <span id="itemList">
+              <ItemsList items={items} setDetail={setDetail} />
+            </span>
           </>
         ) : (
           !form && (

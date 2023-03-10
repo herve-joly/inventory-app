@@ -34,31 +34,34 @@ export function Form(props) {
   }
 
   return (
+    // Form view
     <div>
       <form onSubmit={submitHandler}>
         <input
           onChange={(event) => setTitle(event.target.value)}
-          placeholder="title"
+          placeholder="Title"
         />
         <input
           onChange={(event) => setPrice(event.target.value)}
-          placeholder="price"
+          placeholder="Price"
         />
         <input
           onChange={(event) => setDescription(event.target.value)}
-          placeholder="description"
+          placeholder="Description"
         />
         <input
           onChange={(event) => setCategory(event.target.value)}
-          placeholder="category"
+          placeholder="Category"
         />
         <input
           onChange={(event) => setImage(event.target.value)}
-          placeholder="image url"
+          placeholder="Image URL"
         />
-        <button type="submit">Submit</button>
+        <button type="Submit">Submit</button>
       </form>
-      <button onClick={() => props.setForm(false)}>Back to Items Store</button>
+      <button onClick={() => props.setForm(false)} className="back-button">
+        Back to Items Store
+      </button>
     </div>
   );
 }

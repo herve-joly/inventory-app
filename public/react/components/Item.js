@@ -13,9 +13,48 @@ export const Item = (props) => {
   }
 
   return (
-    <>
-      <h3 onClick={fetchReq}>{props.item.title}</h3>
-      <img src={props.item.image} alt={props.item.title} />
-    </>
+    // Image View
+    // <div style={{ display: "inline-flex", width: "50%" }}>
+    <section
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
+      <div
+        class
+        style={{
+          border: "5px solid rgb(36,38,44)",
+          display: "flex",
+          flexDirection: "column",
+          padding: "10px",
+          margin: "15px",
+          borderRadius: "1.5rem",
+          width: "27rem",
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
+        <>
+          <img
+            onClick={fetchReq}
+            class="img-viewAll"
+            src={props.item.image}
+            alt={props.item.title}
+            style={{
+              cursor: "pointer",
+              borderRadius: "2rem",
+            }}
+          />
+          <h2
+            onClick={fetchReq}
+            style={{
+              cursor: "pointer",
+            }}>
+            {props.item.title}
+          </h2>
+        </>
+      </div>
+    </section>
+    // </div>
   );
 };
