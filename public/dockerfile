@@ -1,9 +1,11 @@
 FROM node
-
+ENV NODE_ENV=development
 WORKDIR /app
-
-COPY . .
-
+COPY ../package.json .
+RUN npm install --legacy-peer-deps
+RUN npm run client-dev
 EXPOSE 1234
 
-CMD ["node", "./server.js"]
+CMD ["node", "api.js"]
+#CMD ["npm", "run","client-dev"]
+#CMD ["node_modules/.bin/parcel", "public/index.html", "--open"]
